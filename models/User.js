@@ -28,7 +28,6 @@ class User extends Model {
         },
         updatedAt: {
           type: DataTypes.DATE,
-          allowNull: false,
         },
       },
       {

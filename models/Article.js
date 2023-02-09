@@ -20,7 +20,6 @@ class Article extends Model {
         },
         img: {
           type: DataTypes.STRING,
-          allowNull: false,
         },
         createdAt: {
           type: DataTypes.DATE,
@@ -28,7 +27,6 @@ class Article extends Model {
         },
         updatedAt: {
           type: DataTypes.DATE,
-          allowNull: false,
         },
       },
       {

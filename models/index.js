@@ -7,6 +7,7 @@ const sequelize = new Sequelize(
   {
     host: "localhost", // Ej: 127.0.0.1
     dialect: "mysql", // Ej: mysql
+    logging: false, // Para que no aparezcan mensajes en consola.
   },
 );
 
