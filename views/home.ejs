@@ -20,13 +20,14 @@
         <p>first article</p>
         <p>second article</p>
         <p>first article</p>
-        <!--esto es el js incriptado (borrar el "/"" de </%):
 
-            </%for (const article of articles){%>
-    <p></%=article.title%></p>
-    <p></%=article.content%></p>
-    <a href="/article/</%=article.id%>">ver más</a>
-    </%}%>-->
+        <!--esto es el js incriptado -->
+
+        <%for (const article of articles){%>
+        <p><%=article.title%></p>
+        <p><%=article.content%></p>
+        <a href="/article/<%=article.id%>">ver más</a>
+        <%}%>
       </div>
     </div>
     <%-include("partial/footer")%> <%-include("partial/bsscript")%>
