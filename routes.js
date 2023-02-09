@@ -1,13 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const pageController = require("./controllers/pageController");
 
-router.get("/", (req, res) => {
-  res.render("home");
-});
+router.get("/", pageController.showHome);
 
-router.get("/admin", (req, res) => {
-  res.render("admin");
-});
+router.get("/admin", pageController.showAdmin);
 
 router.get("/articulos/:id", (req, res) => {
   res.render("articulos");
