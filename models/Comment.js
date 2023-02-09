@@ -6,12 +6,15 @@ class Comment extends Model {
       {
         content: {
           type: DataTypes.TEXT,
+          allowNull: false,
         },
         createdAt: {
           type: DataTypes.DATE,
+          allowNull: false,
         },
         updatedAt: {
           type: DataTypes.DATE,
+          allowNull: false,
         },
       },
       {

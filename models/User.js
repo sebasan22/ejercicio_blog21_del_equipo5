@@ -8,21 +8,27 @@ class User extends Model {
           type: DataTypes.BIGINT.UNSIGNED,
           primaryKey: true,
           autoIncrement: true,
+          allowNull: false,
         },
         firstname: {
           type: DataTypes.STRING,
+          allowNull: false,
         },
         lastname: {
           type: DataTypes.STRING,
+          allowNull: false,
         },
         email: {
           type: DataTypes.STRING,
+          allowNull: false,
         },
         createdAt: {
           type: DataTypes.DATE,
+          allowNull: false,
         },
         updatedAt: {
           type: DataTypes.DATE,
+          allowNull: false,
         },
       },
       {
