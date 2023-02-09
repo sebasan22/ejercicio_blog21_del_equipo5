@@ -27,34 +27,34 @@
             <th scope="col">Actions</th>
           </tr>
         </thead>
-        <!-- js incriptado, sacar el "/" de </%:
+        <!-- js incriptado, sacar el "/" de </%:-->
 
         <tbody>
           <tr>
-            </%for(let article of articles){%>
+            <%for(let article of articles){%>
             <thead>
-              <th scope="row"></%=article.id%></th>
-              <td></%=article.title%></td>
-              <td></%=article.content%></td>
-              <td></%=article.image%></td>
-              <td></%=article.date%></td>
-              <td></%=article.author%></td>
+              <th scope="row"><%=article.id%></th>
+              <td><%=article.title%></td>
+              <td><%=article.content%></td>
+              <td><%=article.img%></td>
+              <td><%=article.createdAt%></td>
+              <td><%=article.author%></td>
               <td>
-                <a href="/usuarios/editar/</%=article.id%>" class="btn btn-primary">Editar</a
+                <a href="/usuarios/editar/<%=article.id%>" class="btn btn-primary">Editar</a
                 ><a
                   type="button"
-                  href="/usuarios/eliminar/</%=article.id%>"
+                  href="/usuarios/eliminar/<%=article.id%>"
                   class="btn btn-danger"
                   name="delete"
                   id="delete"
                 >
                   Eliminar
-                
+                </a>
               </td>
             </thead>
-            </%}%>
+            <%}%>
           </tr>
-        </tbody></a>-->
+        </tbody>
       </table>
     </div>
     <%-include("partial/footer")%> <%-include("partial/bsscript")%>

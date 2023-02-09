@@ -10,7 +10,8 @@ async function showArticulos(req, res) {
 }
 
 async function showAdmin(req, res) {
-  res.render("admin");
+  const articles = await Article.findAll();
+  res.render("admin", { articles });
 }
 
 // Otros handlers...
