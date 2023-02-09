@@ -9,8 +9,8 @@ router.get("/admin", (req, res) => {
   res.render("admin");
 });
 
-router.get("/article/:id", (req, res) => {
-  res.render(article);
+router.get("/articulos/:id", (req, res) => {
+  res.render("articulos");
 });
 
 module.exports = router;
