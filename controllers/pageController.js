@@ -2,7 +2,6 @@ const { Article } = require("../models");
 
 async function showHome(req, res) {
   const articles = await Article.findAll();
-  console.log(articles);
   res.render("home", { articles });
 }
 

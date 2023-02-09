@@ -15,17 +15,12 @@
     <div class="container ms-auto me-auto" style="width: 18rem">
       <img src="../img/ian-dooley-DJ7bWa-Gwks-unsplash.jpg" class="card-img-top" alt="..." />
     </div>
-    <div class="card ms-auto me-auto" style="width: 18rem">
-      <div class="card-body">
-        <p>first article</p>
-        <p>second article</p>
-        <p>first article</p>
-
-        <!--esto es el js incriptado -->
-
+    <div class="container ms-auto me-auto text-center">
+      <!--esto es el js incriptado -->
+      <div>
         <%for (const article of articles){%>
-        <p><%=article.title%></p>
-        <p><%=article.content%></p>
+        <h2><%=article.title%></h2>
+        <small>Creado por author el <%=article.createdAt%></small>
         <a href="/article/<%=article.id%>">ver más</a>
         <%}%>
       </div>
