@@ -7,9 +7,8 @@ const router = require("./routes");
 const dbInitialSetup = require("./dbInitialSetup");
 
 app.set("view engine", "ejs");
-
 app.use(router);
-
+app.use(express.static("public"));
 dbInitialSetup();
 
 app.listen(port, () => {
