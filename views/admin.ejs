@@ -34,11 +34,11 @@
             <%for(let article of articles){%>
             <thead>
               <th scope="row"><%=article.id%></th>
-              <td><%=article.title%></td>
-              <td><%=article.content%></td>
-              <td><%=article.img%></td>
-              <td><%=article.createdAt%></td>
-              <td><%=article.author%></td>
+              <td><p><%=article.title%></p></td>
+              <td><p><%=article.content%></p></td>
+              <td><img src="<%=article.img%>" alt="imagen" /></td>
+              <td><p><%=article.createdAt%></p></td>
+              <td><p><%=article.author%>Author name</p></td>
               <td>
                 <a href="/usuarios/editar/<%=article.id%>" class="btn btn-primary">Editar</a
                 ><a
