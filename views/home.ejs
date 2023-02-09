@@ -8,8 +8,24 @@
     <%-include("partial/bsLink")%>
   </head>
   <body>
-    <%-include("partial/NavBar")%> <%-include("partial/bsscript")%>
-
+    <%-include("partial/NavBar")%>
     <h1>Estas en Home</h1>
+    <div class="container ms-auto me-auto" style="width: 18rem">
+      <img src="../img/ian-dooley-DJ7bWa-Gwks-unsplash.jpg" class="card-img-top" alt="..." />
+    </div>
+    <div class="card ms-auto me-auto" style="width: 18rem">
+      <div class="card-body">
+        <p>first article</p>
+        <p>second article</p>
+        <p>first article</p>
+        <!--esto es el js incriptado (borrar el "/"" de </%):
+            </%for (const article of articles){%>
+    <p></%=article.title%></p>
+    <p></%=article.content%></p>
+    <a href="/article/</%=article.id%>">ver más</a>
+    </%}%>-->
+      </div>
+    </div>
+    <%-include("partial/bsscript")%>
   </body>
 </html>
