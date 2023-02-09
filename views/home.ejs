@@ -8,8 +8,10 @@
     <%-include("partial/bsLink")%>
   </head>
   <body>
-    <%-include("partial/NavBar")%>
-    <h1>Estas en Home</h1>
+    <div class="container">
+      <%-include("partial/NavBar")%>
+      <h1>Estas en Home</h1>
+    </div>
     <div class="container ms-auto me-auto" style="width: 18rem">
       <img src="../img/ian-dooley-DJ7bWa-Gwks-unsplash.jpg" class="card-img-top" alt="..." />
     </div>
@@ -19,6 +21,7 @@
         <p>second article</p>
         <p>first article</p>
         <!--esto es el js incriptado (borrar el "/"" de </%):
+
             </%for (const article of articles){%>
     <p></%=article.title%></p>
     <p></%=article.content%></p>
