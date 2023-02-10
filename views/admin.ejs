@@ -34,8 +34,16 @@
             <%for(let article of articles){%>
 
             <thead class="table">
-              <th><%=article.id%></th>
-              <td><p><%=article.title%></p></td>
+              <th><p><%=article.id%></p></th>
+              <td>
+                <p>
+                  <a
+                    class="text-reset text-decoration-none"
+                    href="http://localhost:3000/articulos/<%=article.id%>"
+                    ><%=article.title%></a
+                  >
+                </p>
+              </td>
               <td><p><%=article.content%></p></td>
               <td><img src="<%=article.img%>" alt="imagen" width="200" height="200" /></td>
               <td><p><%=article.createdAt%></p></td>
