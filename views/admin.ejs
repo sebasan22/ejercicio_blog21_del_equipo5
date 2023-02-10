@@ -39,17 +39,21 @@
               <td><img src="<%=article.img%>" alt="imagen" /></td>
               <td><p><%=article.createdAt%></p></td>
               <td><p><%=article.author%>Author name</p></td>
-              <td>
-                <a href="/usuarios/editar/<%=article.id%>" class="btn btn-primary">Editar</a
-                ><a
-                  type="button"
-                  href="/usuarios/eliminar/<%=article.id%>"
-                  class="btn btn-danger"
-                  name="delete"
-                  id="delete"
-                >
-                  Eliminar
-                </a>
+              <td class="d-flex">
+                <div>
+                  <a href="/usuarios/editar/<%=article.id%>" class="btn btn-primary">Editar</a>
+                </div>
+                <div>
+                  <a
+                    type="button"
+                    href="/usuarios/eliminar/<%=article.id%>"
+                    class="btn btn-danger"
+                    name="delete"
+                    id="delete"
+                  >
+                    Eliminar
+                  </a>
+                </div>
               </td>
             </thead>
             <%}%>
