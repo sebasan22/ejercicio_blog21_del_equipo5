@@ -7,7 +7,6 @@ async function showHome(req, res) {
 
 async function showArticulos(req, res) {
   const article = await Article.findByPk(req.params.id, { include: User });
-  console.log(article);
   res.render("articulos", { article });
 }
 
