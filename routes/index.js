@@ -4,7 +4,7 @@
  */
 
 //const userRoutes = require("./userRoutes");
-//const articleRoutes = require("./articleRoutes");
+const articleRoutes = require("./articleRoutes");
 //const commentRoutes = require("./commentRoutes");
 
 /**
@@ -29,7 +29,7 @@ module.exports = (app) => {
    */
 
   //app.use("/usuarios", userRoutes);
-  //app.use("/articulos", articleRoutes);
+  app.use("/articulos", articleRoutes);
   //app.use("/comentarios", commentRoutes);
 
   app.use("/", publicRoutes);

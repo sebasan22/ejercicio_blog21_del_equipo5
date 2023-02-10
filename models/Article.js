@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+const User = require("./User");
 
 class Article extends Model {
   static initModel(sequelize) {
@@ -29,6 +30,10 @@ class Article extends Model {
     );
 
     return Article;
+  }
+  async getAuthor() {
+    let author = await User.findByPk(this.userId);
+    return author.dataValues;
   }
 }
 
