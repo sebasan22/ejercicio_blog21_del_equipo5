@@ -6,8 +6,8 @@ async function showHome(req, res) {
 }
 
 async function showArticulos(req, res) {
-  const articles = await Article.findAll();
-  res.render("articulos", { articles });
+  const article = await Article.findByPk(req.params.id);
+  res.render("articulos", { article });
 }
 
 async function showAdmin(req, res) {
