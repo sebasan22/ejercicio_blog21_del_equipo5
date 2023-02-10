@@ -31,7 +31,8 @@
 
         <tbody>
           <tr class="mx-auto">
-            <%for(let article of articles){%>
+            <% let count=0 %><%for(let article of articles){ count++%> <%if (count >= 5) {%> <%
+            break;%><%} else {%>
             <thead>
               <th scope="row "><%=article.id%></th>
               <td><p><%=article.title%></p></td>
@@ -52,7 +53,7 @@
                 </a>
               </td>
             </thead>
-            <%}%>
+            <%}%> <%}%>
           </tr>
         </tbody>
       </table>
