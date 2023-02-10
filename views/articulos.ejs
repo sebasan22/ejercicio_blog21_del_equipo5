@@ -10,30 +10,30 @@
   <body>
     <div class="container">
       <%-include("partial/NavBar")%> <%-include("partial/bsscript")%>
-      <!--esto es el js incriptado (borrar el "/"" de </%):
-            </%for (const article of articles){%>
-                  <h1 class="text-center"></%=article.title%></h1>
-   <div class="d-flex">
-   <div class="col">
-       <p></%=article.author%></p>
-</div>
-<div>
-         <button type="button" class="btn btn-outline-success">Comment</button>
+
+      <div>
+        <%for (const article of articles){%>
+        <h1 class="text-center"><%=article.title%></h1>
+        <div class="d-flex">
+          <div class="col">
+            <p><%=article.author%></p>
           </div>
-            </div>
-      <div>
-             <img src="../img/social_1024x530.jpg" alt="foto" />
-              </div>
+          <div>
+            <button type="button" class="btn btn-outline-success">Comment</button>
+          </div>
+        </div>
+        <div><img src="#" alt="foto" /></div>
 
-      <div>
-        <p></%=article.text%></p>
-            </div>
+        <div>
+          <p><%=article.text%></p>
+        </div>
+      </div>
+
+      <p><%=article.content%></p>
+      <a href="/article/<%=article.id%>">ver más</a>
+      <%}%>
     </div>
-
-
-    <p></%=article.content%></p>
-    <a href="/article/</%=article.id%>">ver más</a>
-    </%}%>-->
+    <div>
       <h1 class="text-center">Titulo del articulo</h1>
       <div class="d-flex">
         <div class="col">

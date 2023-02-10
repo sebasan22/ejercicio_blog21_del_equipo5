@@ -6,8 +6,6 @@ router.get("/", pageController.showHome);
 
 router.get("/admin", pageController.showAdmin);
 
-router.get("/articulos/:id", (req, res) => {
-  res.render("articulos");
-});
+router.get("/articulos/:id", pageController.showArticulos);
 
 module.exports = router;

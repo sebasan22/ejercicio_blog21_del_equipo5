@@ -6,7 +6,8 @@ async function showHome(req, res) {
 }
 
 async function showArticulos(req, res) {
-  res.render("articulos");
+  const articles = await Article.findAll();
+  res.render("articulos", { articles });
 }
 
 async function showAdmin(req, res) {
