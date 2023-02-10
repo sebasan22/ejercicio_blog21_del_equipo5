@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <%-include("partials/bsLink")%>
   </head>
   <body>
-    <h1>HOLA MUNDO</h1>
+    <div class="container">
+      <%-include("partials/NavBar")%> <%-include("partials/bsscript")%>
+      <h1 class="text-center">Cree su nuevo articulo</h1>
+      <form action="get">
+        <div>
+          <label for="title" class="form-label">Ingrese un Titulo</label>
+          <input class="form-control" type="text" id="title" name="#" />
+        </div>
+        <div>
+          <label for="img" class="form-label">Ingrese una imagen (Link)</label>
+          <input class="form-control" type="text" id="img" name="#" />
+        </div>
+        <div>
+          <label for="text" class="form-label">Escriba a gusto</label>
+          <input class="form-control" type="text" id="text" name="text" />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success $teal-500 mt-4">Subir Blog</button>
+        </div>
+      </form>
+    </div>
+    <%-include("partials/footer")%>
   </body>
 </html>
