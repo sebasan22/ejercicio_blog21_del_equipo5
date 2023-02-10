@@ -10,59 +10,28 @@
   <body>
     <div class="container">
       <%-include("partials/NavBar")%> <%-include("partials/bsscript")%>
-   <div>
-     <%for (const article of articles){%>
-           <h1 class="text-center"><%=article.title%></h1>
-<div class="d-flex">
-<div class="col">
-<p><%=article.author%></p>
-</div>
-<div>
-  <button type="button" class="btn btn-outline-success">Comment</button>
-   </div>
- </div>
- <div><img src="#" alt="foto" /></div>
-
- <div>
-   <p><%=article.text%></p>
- </div>
-</div>
-
-<p><%=article.content%></p>
-<a href="/article/<%=article.id%>">ver más</a>
-<%}%>
-   </div>
-    </div>
-    <div>
-      <h1 class="text-center">Titulo del articulo</h1>
-      <div class="d-flex">
-        <div class="col">
-          <p>Autor</p>
+      <div>
+        <h1 class="text-center"><%=article.title%></h1>
+        <div class="d-flex">
+          <div class="col">
+            <p><%=article.author%></p>
+          </div>
+          <div class="col text-center">
+            <p><%=article.createdAt%></p>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-success ms-auto d-flex">Comment</button>
+          </div>
         </div>
-        <div class="col d-flex">
-          <p>fecha</p>
-        </div>
+        <div><img src="#" alt="foto" /></div>
+
         <div>
-          <button type="button" class="btn btn-outline-success">Comment</button>
+          <p><%=article.text%></p>
         </div>
-      </div>
-      <div>
-        <img src="../img/social_1024x530.jpg" alt="foto" />
-      </div>
-
-      <div>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque ratione vel aspernatur
-          expedita ipsam cumque sit veniam labore quis numquam. Eos, ipsam. Recusandae a officia rem
-          dolorem amet eligendi autem, eaque, quas in fuga nam optio necessitatibus aut hic neque
-          velit vero. Expedita, blanditiis fugit. Atque unde pariatur doloribus sequi saepe expedita
-          magnam voluptate quisquam molestiae eveniet iusto eum, dignissimos accusamus, voluptatibus
-          modi quam fugiat nam, reiciendis odio dolorum. Libero non quaerat labore culpa omnis id
-          soluta aperiam aliquam iusto officiis voluptate, quibusdam, excepturi ullam reprehenderit
-          beatae veniam dolores accusamus!
-        </p>
+        <p><%=article.content%></p>
       </div>
     </div>
+
     <%-include("partials/footer")%>
   </body>
 </html>
