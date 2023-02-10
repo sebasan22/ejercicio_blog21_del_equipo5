@@ -39,7 +39,9 @@
               <td><p><%=article.content%></p></td>
               <td><img src="<%=article.img%>" alt="imagen" /></td>
               <td><p><%=article.createdAt%></p></td>
-              <td><p><%=article.author%>Author name</p></td>
+              <td>
+                <p><%=article.user.dataValues.firstname+" "+article.user.dataValues.lastname%></p>
+              </td>
               <td>
                 <div class="text-center">
                   <a href="/panel/admin/editar/<%=article.id%>" class="btn btn-primary">Editar</a>

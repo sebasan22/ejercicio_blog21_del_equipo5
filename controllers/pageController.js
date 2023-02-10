@@ -12,7 +12,7 @@ async function showArticulos(req, res) {
 }
 
 async function showAdmin(req, res) {
-  const articles = await Article.findAll();
+  const articles = await Article.findAll({ include: User });
   res.render("admin", { articles });
 }
 
