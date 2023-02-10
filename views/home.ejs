@@ -5,29 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../public/css/homeStyles.css" />
+    <link rel="stylesheet" href="/css/home-style.css" />
     <%-include("partials/bsLink")%>
   </head>
   <body>
     <div class="container">
       <%-include("partials/NavBar")%>
-
-      <img src="../img/ian-dooley-DJ7bWa-Gwks-unsplash.jpg" class="img-fluid" alt="..." />
+      <div class="text-center" id="img2">
+        <img
+          src="../img/ian-dooley-DJ7bWa-Gwks-unsplash.jpg"
+          id="home-img"
+          class="img-fluid"
+          alt="..."
+        />
+      </div>
     </div>
     <div class="container d-flex align-items-center justify-content-center">
       <!--esto es el js incriptado -->
       <div>
         <ul class="list-unstyled">
-          <%for (const article of articles){%>
-
+          <% let count=0 %> <%for (const article of articles){ count++%> <%if (count >= 5) {%> <%
+          break;%><%} else {%>
           <li class="border-bottom border-top">
             <a class="text-reset text-decoration-none" href="/articulos/<%=article.id%>"
               ><h2><%=article.title%></h2></a
             >
+
             <small>Creado por author el <%=article.createdAt%></small>
           </li>
-
-          <%}%>
+          <%}%> <%}%>
         </ul>
       </div>
     </div>
