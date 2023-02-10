@@ -16,10 +16,11 @@ module.exports = async () => {
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
+      userId: Math.floor(Math.random() * 15) + 1,
     });
   }
-
-  await Article.bulkCreate(articles);
   await User.bulkCreate(users);
+  await Article.bulkCreate(articles);
+
   console.log("[Database] Se corrió el seeder de Articles.");
 };
