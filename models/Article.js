@@ -21,13 +21,6 @@ class Article extends Model {
         img: {
           type: DataTypes.STRING,
         },
-        createdAt: {
-          type: DataTypes.DATE,
-          allowNull: false,
-        },
-        updatedAt: {
-          type: DataTypes.DATE,
-        },
       },
       {
         sequelize,
