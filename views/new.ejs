@@ -11,14 +11,14 @@
     <div class="container">
       <%-include("partials/NavBar")%> <%-include("partials/bsscript")%>
       <h1 class="text-center">Cree su nuevo articulo</h1>
-      <form action="get">
+      <form action="/articulos" method="post">
         <div>
           <label for="title" class="form-label">Ingrese un Titulo</label>
-          <input class="form-control" type="text" id="title" name="#" />
+          <input class="form-control" type="text" id="title" name="titulo" />
         </div>
         <div>
           <label for="img" class="form-label">Ingrese una imagen (Link)</label>
-          <input class="form-control" type="text" id="img" name="#" />
+          <input class="form-control" type="text" id="img" name="img" />
         </div>
         <div>
           <label for="text" class="form-label">Escriba a gusto</label>

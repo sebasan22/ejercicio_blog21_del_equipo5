@@ -20,7 +20,10 @@ async function create(req, res) {
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  await Article.create({ title: req.body.titulo, content: req.body.text, img: req.body.img });
+  res.redirect("/panel/admin");
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}
