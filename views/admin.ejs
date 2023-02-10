@@ -15,44 +15,49 @@
       <a href="#" class="btn btn-success">Nuevo</a>
     </div>
     <div class="container">
-      <table class="table">
+      <table class="table-striped table-hover">
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Content</th>
-            <th scope="col">Image</th>
-            <th scope="col">Created at</th>
-            <th scope="col">Author</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="text-center">Title</th>
+            <th scope="col" class="text-center">Content</th>
+            <th scope="col" class="text-center">Image</th>
+            <th scope="col" class="text-center">Created at</th>
+            <th scope="col" class="text-center">Author</th>
+            <th scope="col" class="text-center">Actions</th>
           </tr>
         </thead>
         <!-- js incriptado, sacar el "/" de </%:-->
 
         <tbody>
-          <tr class="mx-auto">
+          <tr>
             <% let count=0 %><%for(let article of articles){ count++%> <%if (count >= 5) {%> <%
             break;%><%} else {%>
-            <thead>
-              <th scope="row "><%=article.id%></th>
+
+            <thead class="table">
+              <th><%=article.id%></th>
               <td><p><%=article.title%></p></td>
               <td><p><%=article.content%></p></td>
               <td><img src="<%=article.img%>" alt="imagen" /></td>
               <td><p><%=article.createdAt%></p></td>
               <td><p><%=article.author%>Author name</p></td>
               <td>
-                <a href="/panel/admin/editar/<%=article.id%>" class="btn btn-primary">Editar</a>
-
-                <a
-                  type="button"
-                  href="/panel/admin/eliminar/<%=article.id%>"
-                  class="btn btn-danger"
-                  name="delete"
-                  id="delete"
-                  >Eliminar
-                </a>
+                <div class="text-center">
+                  <a href="/panel/admin/editar/<%=article.id%>" class="btn btn-primary">Editar</a>
+                </div>
+                <div class="text-center">
+                  <a
+                    type="button"
+                    href="/panel/admin/eliminar/<%=article.id%>"
+                    class="btn btn-danger"
+                    name="delete"
+                    id="delete"
+                    >Eliminar
+                  </a>
+                </div>
               </td>
             </thead>
+
             <%}%> <%}%>
           </tr>
         </tbody>
