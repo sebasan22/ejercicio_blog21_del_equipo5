@@ -40,11 +40,11 @@
               <td><p><%=article.createdAt%></p></td>
               <td><p><%=article.author%>Author name</p></td>
               <td>
-                <a href="/usuarios/editar/<%=article.id%>" class="btn btn-primary">Editar</a>
+                <a href="/panel/admin/editar/<%=article.id%>" class="btn btn-primary">Editar</a>
 
                 <a
                   type="button"
-                  href="/usuarios/eliminar/<%=article.id%>"
+                  href="/panel/admin/<%=article.id%>"
                   class="btn btn-danger"
                   name="delete"
                   id="delete"
