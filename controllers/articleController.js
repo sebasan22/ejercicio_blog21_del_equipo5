@@ -19,7 +19,16 @@ async function edit(req, res) {}
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  const articleId = req.params.id;
+
+  await Article.destroy({
+    where: {
+      id: articleId,
+    },
+  });
+  res.redirect("/panel/admin");
+}
 
 // Otros handlers...
 // ...
