@@ -31,8 +31,7 @@
 
         <tbody>
           <tr>
-            <% let count=0 %><%for(let article of articles){ count++%> <%if (count >= 5) {%> <%
-            break;%><%} else {%>
+            <%for(let article of articles){%>
 
             <thead class="table">
               <th><%=article.id%></th>
@@ -58,7 +57,7 @@
               </td>
             </thead>
 
-            <%}%> <%}%>
+            <%}%>
           </tr>
         </tbody>
       </table>
