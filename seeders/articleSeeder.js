@@ -16,7 +16,7 @@ module.exports = async () => {
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
-      userId: Math.floor(Math.random() * 15) + 1,
+      userId: Math.floor(Math.random() * 14) + 1,
     });
   }
   await User.bulkCreate(users);
