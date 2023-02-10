@@ -16,6 +16,7 @@ module.exports = async () => {
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
+      img: faker.image.nature(480, 480, true),
       userId: Math.floor(Math.random() * 14) + 1,
     });
   }
