@@ -7,7 +7,8 @@ async function showHome(req, res) {
 
 async function showArticulos(req, res) {
   const article = await Article.findByPk(req.params.id, { include: User });
-  res.render("articulos", { article });
+  console.log(article.user.dataValues);
+  res.render("articulos", { article, author: article.user.dataValues });
 }
 
 async function showAdmin(req, res) {
