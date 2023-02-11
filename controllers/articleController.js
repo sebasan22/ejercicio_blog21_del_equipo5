@@ -31,7 +31,9 @@ async function store(req, res) {
 }
 
 // Show the form for editing the specified resource.
-async function edit(req, res) {}
+async function edit(req, res) {
+  res.render("edit", { Article });
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {}
