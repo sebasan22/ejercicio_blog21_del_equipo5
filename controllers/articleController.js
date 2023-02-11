@@ -32,11 +32,15 @@ async function store(req, res) {
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
-  res.render("edit", { Article });
+  const article = await Article.findByPk(req.params.id);
+  console.log(req.body.article);
+  res.render("edit", { article });
 }
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  res.redirect("/panel/admin");
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
