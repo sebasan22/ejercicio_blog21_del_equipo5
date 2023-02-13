@@ -12,5 +12,6 @@ router.get("/:id", articleController.show);
 router.get("/:id/editar", articleController.edit);
 router.post("/:id", articleController.update);
 router.get("/eliminar/:id", articleController.destroy);
+router.post("/comentar/:id", articleController.createComment);
 
 module.exports = router;
