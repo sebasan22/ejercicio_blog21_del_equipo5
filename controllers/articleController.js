@@ -1,5 +1,16 @@
 const { Article, Comment, User } = require("../models");
 
+async function createComment(req, res) {
+  const articleId = req.params.id;
+  const commentText = req.body.commentText;
+  await Comment.create({
+    content: commentText,
+    articleId: articleId,
+    userId: Math.floor(Math.random() * 14) + 1,
+  });
+  res.redirect(`/articulos/${articleId}`);
+}
+
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
@@ -19,6 +30,7 @@ async function show(req, res) {
     ],
   });
   const author = await article.getAuthor();
+
   res.render("articulos", { article, author });
 }
 
@@ -89,4 +101,5 @@ module.exports = {
   edit,
   update,
   destroy,
+  createComment,
 };
