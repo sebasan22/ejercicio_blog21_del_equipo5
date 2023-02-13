@@ -17,7 +17,10 @@
             <p>Author: <%=author.firstname%> <%=author.lastname%></p>
           </div>
           <div class="col-6 text-center">
-            <small><%=article.createdAt%></small>
+            <small>
+              <!-- prettier-ignore -->
+              <%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%>
+            </small>
           </div>
           <hr class="my-2" />
         </div>
@@ -51,8 +54,9 @@
               </div>
               <small class="text-muted"
                 >Creado por <%=comment.user.firstname%> <%=comment.user.lastname%> el
-                <%=comment.createdAt%></small
-              >
+                <!-- prettier-ignore -->
+                <%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%>
+              </small>
             </div>
           </li>
           <%}%>

@@ -42,8 +42,9 @@
                       <p class="card-text">
                         <small class="text-muted"
                           >Creado por <%=article.user.firstname%> <%=article.user.lastname%> el
-                          <%=article.createdAt%></small
-                        >
+                          <!-- prettier-ignore -->
+                          <%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%>
+                        </small>
                       </p>
                     </div>
                   </div>
