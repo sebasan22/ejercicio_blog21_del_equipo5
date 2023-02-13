@@ -24,11 +24,7 @@
         <div class="d-flex justify-content-center">
           <img class="img-fluid" src="<%=article.img %>" alt="foto" />
         </div>
-        <div><img src="<%=article.img %>" alt="foto" /></div>
-
-        <div>
-          <p><%=article.text%></p>
-        </div>
+        <div class="my-3"><p><%=article.content %></p></div>
       </div>
 
       <form action="/articulos/comentar/<%=article.id%>" method="post">
