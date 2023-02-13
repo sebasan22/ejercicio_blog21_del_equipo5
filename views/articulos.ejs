@@ -50,6 +50,10 @@
               <div class="card-body">
                 <p class="card-text"><%=comment.content%></p>
               </div>
+              <small class="text-muted"
+                >Creado por <%=comment.user.firstname%> <%=comment.user.lastname%> el
+                <%=comment.createdAt%></small
+              >
             </div>
           </li>
           <%}%>
