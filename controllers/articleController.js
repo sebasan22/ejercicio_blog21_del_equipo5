@@ -2,16 +2,6 @@ const { Article, Comment, User } = require("../models");
 const format = require("date-fns/format");
 const es = require("date-fns/locale/es");
 
-async function createComment(req, res) {
-  const articleId = req.params.id;
-  await Comment.create({
-    content: req.body.commentText,
-    articleId: articleId,
-    userId: Math.floor(Math.random() * 14) + 1,
-  });
-  res.redirect(`/articulos/${articleId}`);
-}
-
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
@@ -73,6 +63,15 @@ async function update(req, res) {
     },
   );
   res.redirect("/panel/admin");
+}
+async function createComment(req, res) {
+  const articleId = req.params.id;
+  await Comment.create({
+    content: req.body.commentText,
+    articleId: articleId,
+    userId: Math.floor(Math.random() * 14) + 1,
+  });
+  res.redirect(`/articulos/${articleId}`);
 }
 
 // Remove the specified resource from storage.

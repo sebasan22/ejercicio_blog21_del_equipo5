@@ -51,12 +51,12 @@
             <div class="card mb-3">
               <div class="card-body">
                 <p class="card-text"><%=comment.content%></p>
+                <small class="text-muted"
+                  >Creado por <%=comment.user.firstname%> <%=comment.user.lastname%> el
+                  <!-- prettier-ignore -->
+                  <%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%>
+                </small>
               </div>
-              <small class="text-muted"
-                >Creado por <%=comment.user.firstname%> <%=comment.user.lastname%> el
-                <!-- prettier-ignore -->
-                <%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%>
-              </small>
             </div>
           </li>
           <%}%>
