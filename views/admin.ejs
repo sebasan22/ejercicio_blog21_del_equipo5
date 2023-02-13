@@ -19,6 +19,7 @@
         <div class="col-6"><h1>Estas en Admin</h1></div>
         <div class="col-1"><a href="/panel/admin/new" class="btn btn-success">Nuevo</a></div>
       </div>
+<<<<<<< Updated upstream
 
       <div class="container">
         <table class="table-striped table-hover">
@@ -76,6 +77,62 @@
 
               <%}%>
             </tr>
+=======
+    </div>
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col" class="text-center">Title</th>
+              <th scope="col" class="text-center">Content</th>
+              <th scope="col" class="text-center">Image</th>
+              <th scope="col" class="text-center">Created at</th>
+              <th scope="col" class="text-center">Author</th>
+              <th scope="col" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <!-- js incriptado, sacar el "/" de </%:-->
+
+          <tbody>
+            <%for(let article of articles){%>
+            <tr>
+              <th><p><%=article.id%></p></th>
+              <td>
+                <p>
+                  <a
+                    class="text-reset text-decoration-none"
+                    href="http://localhost:3000/articulos/<%=article.id%>"
+                    ><%=article.title%></a
+                  >
+                </p>
+              </td>
+              <td><div class="overflow-auto"><%=article.content%></div></td>
+              <td><img src="<%=article.img%>" alt="imagen" width="200" height="200" /></td>
+              <td><p><%=article.createdAt%></p></td>
+              <td>
+                <p><%=article.user.firstname+" "+article.user.lastname%></p>
+              </td>
+              <td>
+                <div class="text-center">
+                  <a href="/panel/admin/edit/<%=article.id%>" class="btn btn-primary">Editar</a>
+                </div>
+                <div class="text-center">
+                  <a
+                    onclick="askForDelete(<%=article.id%>)"
+                    type="button"
+                    href="/panel/admin/eliminar/<%=article.id%>"
+                    class="btn btn-danger"
+                    name="delete"
+                    id="delete"
+                    >Eliminar
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <%}%>
+>>>>>>> Stashed changes
           </tbody>
         </table>
       </div>
