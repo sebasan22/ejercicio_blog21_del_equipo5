@@ -1,18 +1,18 @@
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script>
   let deleteLink = document.querySelector(".btn.btn-danger");
-  deleteLink.addEventListener("click", async (event) => {
+  function askForDelete() {
     event.preventDefault();
-    await alertify.confirm(
+    alertify.confirm(
       "Eliminar artículo",
       "¿Seguro que quieres eliminar este artículo?",
-      async function () {
-        await alertify.success("Artículo eliminado");
-        return (window.location.href = deleteLink.href);
+      function () {
+        alertify.success("Artículo eliminado");
+        window.location.href = deleteLink.href;
       },
-      async function () {
-        await alertify.error("Cancelado");
+      function () {
+        alertify.error("Cancelado");
       },
     );
-  });
+  }
 </script>
