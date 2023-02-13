@@ -17,10 +17,7 @@
             <p><%=author.firstname%> <%=author.lastname%></p>
           </div>
           <div class="col text-center">
-            <p><%=article.createdAt%></p>
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-outline-success ms-auto d-flex">Comment</button>
+            <small><%=article.createdAt%></small>
           </div>
         </div>
         <div><img src="<%=article.img %>" alt="foto" /></div>
@@ -29,6 +26,38 @@
           <p><%=article.text%></p>
         </div>
         <p><%=article.content%></p>
+      </div>
+
+      <form action="/articulos" method="post">
+        <div>
+          <label for="title"> <h5>Escriba su comentario</h5></label>
+        </div>
+        <div class="comment-write-input">
+          <textarea name="text" rows="5" class="form-control"></textarea>
+        </div>
+        <div class="my-4">
+          <button class="btn btn-success" type="submit">Publicar</button>
+        </div>
+      </form>
+      <div>
+        <h5 class="text-center">Comentarios</h5>
+      </div>
+      <div>
+        <ul class="list-unstyled">
+          <li>
+            <div class="card mb-3">
+              <div class="card-header">
+                <h6>email</h6>
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <%-include("partials/footer")%>

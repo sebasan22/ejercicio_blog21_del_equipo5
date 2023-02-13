@@ -3,7 +3,6 @@ const { Article } = require("../models");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
-  console.log(articles);
   res.json(articles);
 }
 
@@ -33,6 +32,7 @@ async function store(req, res) {
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const article = await Article.findByPk(req.params.id);
+  console.log(req.params);
   res.render("edit", { article });
 }
 
@@ -42,7 +42,6 @@ async function update(req, res) {
   const titulo = req.body.titulo;
   const img = req.body.img;
   const content = req.body.text;
-
   await Article.update(
     {
       title: titulo,
@@ -61,7 +60,6 @@ async function update(req, res) {
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   const articleId = req.params.id;
-  console.log(articleId);
   await Article.destroy({
     where: {
       id: articleId,
