@@ -2,13 +2,14 @@
 <script>
   let deleteLink = document.querySelector(".btn.btn-danger");
   function askForDelete() {
-    event.preventDefault();
+    event.preventDefault(id);
     alertify.confirm(
       "Eliminar artículo",
       "¿Seguro que quieres eliminar este artículo?",
       function () {
         alertify.success("Artículo eliminado");
-        window.location.href = deleteLink.href;
+
+        window.location.href = "/panel/admin/eliminar/" + id;
       },
       function () {
         alertify.error("Cancelado");
