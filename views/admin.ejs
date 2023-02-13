@@ -61,10 +61,14 @@
                   <a href="/panel/admin/edit/<%=article.id%>" class="btn btn-primary">Editar</a>
                 </div>
                 <div class="text-center">
-                  <!-- prettier-ignore -->
-                  <a onclick=<%`askForDelete(${article.id})`%>
-                    type="button" href="/panel/admin/eliminar/<%=article.id%>" class="btn
-                    btn-danger" name="delete" id="delete" >Eliminar
+                  <a
+                    onclick="askForDelete(<%=article.id%>)"
+                    type="button"
+                    href="/panel/admin/eliminar/<%=article.id%>"
+                    class="btn btn-danger"
+                    name="delete"
+                    id="delete"
+                    >Eliminar
                   </a>
                 </div>
               </td>
