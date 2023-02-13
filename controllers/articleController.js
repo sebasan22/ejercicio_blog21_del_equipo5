@@ -3,7 +3,6 @@ const { Article } = require("../models");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
-  console.log(articles);
   res.json(articles);
 }
 
@@ -38,19 +37,15 @@ async function edit(req, res) {
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  const articleId = req.params.id;
-  const titulo = req.body.titulo;
-  const img = req.body.img;
-  const content = req.body.text;
   await Article.update(
     {
-      title: titulo,
-      content: content,
-      img: img,
+      title: req.body.titulo,
+      img: req.body.img,
+      content: req.body.text,
     },
     {
       where: {
-        id: articleId,
+        id: req.params.id,
       },
     },
   );
@@ -60,7 +55,6 @@ async function update(req, res) {
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   const articleId = req.params.id;
-  console.log(articleId);
   await Article.destroy({
     where: {
       id: articleId,
