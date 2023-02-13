@@ -14,15 +14,16 @@
       <form action="/articulos" method="post">
         <div>
           <label for="title" class="form-label">Ingrese un Titulo</label>
-          <input class="form-control" type="text" id="title" name="titulo" />
+          <input class="form-control" type="text" id="title" name="titulo" required />
         </div>
         <div>
           <label for="img" class="form-label">Ingrese una imagen (Link)</label>
-          <input class="form-control" type="text" id="img" name="img" />
+          <input class="form-control" type="text" id="img" name="img" required />
         </div>
         <div>
           <label for="text" class="form-label">Escriba a gusto</label>
-          <textarea class="form-control" id="text" name="text" style="height: 100px"> </textarea>
+          <textarea class="form-control" id="text" name="text" style="height: 100px" required>
+          </textarea>
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-success $teal-500 mt-4">Subir Blog</button>

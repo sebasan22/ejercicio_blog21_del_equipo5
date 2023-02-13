@@ -20,6 +20,7 @@
             type="text"
             id="title"
             name="titulo"
+            required
             value="<%= article.title %>"
           />
         </div>
@@ -29,7 +30,7 @@
         </div>
         <div class="">
           <label for="text" class="form-label">Texto</label>
-          <textarea class="form-control" id="text" name="text" style="height: 100px">
+          <textarea class="form-control" id="text" name="text" style="height: 100px" required>
           <%=article.content%>
         </textarea
           >
