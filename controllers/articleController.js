@@ -57,7 +57,7 @@ async function update(req, res) {
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   const articleId = req.params.id;
-
+  console.log(articleId);
   await Article.destroy({
     where: {
       id: articleId,
