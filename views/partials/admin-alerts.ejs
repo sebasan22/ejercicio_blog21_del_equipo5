@@ -1,8 +1,8 @@
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script>
   let deleteLink = document.querySelector(".btn.btn-danger");
-  function askForDelete() {
-    event.preventDefault(id);
+  function askForDelete(id) {
+    event.preventDefault();
     alertify.confirm(
       "Eliminar artículo",
       "¿Seguro que quieres eliminar este artículo?",
