@@ -29,13 +29,10 @@
         </div>
         <div class="">
           <label for="text" class="form-label">Texto</label>
-          <input
-            class="form-control"
-            type="text"
-            id="text"
-            name="text"
-            value="<%= article.content %>"
-          />
+          <textarea class="form-control" id="text" name="text" style="height: 100px">
+          <%=article.content%>
+        </textarea
+          >
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-success $teal-500 mt-4">Reescribir Blog</button>
