@@ -2,9 +2,8 @@ const { Article, Comment, User } = require("../models");
 
 async function createComment(req, res) {
   const articleId = req.params.id;
-  const commentText = req.body.commentText;
   await Comment.create({
-    content: commentText,
+    content: req.body.commentText,
     articleId: articleId,
     userId: Math.floor(Math.random() * 14) + 1,
   });
@@ -53,22 +52,17 @@ async function store(req, res) {
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const article = await Article.findByPk(req.params.id);
-  console.log(req.params);
   res.render("edit", { article });
 }
 
 // Update the specified resource in storage.
 async function update(req, res) {
   const articleId = req.params.id;
-  const titulo = req.body.titulo;
-  const img = req.body.img;
-  const content = req.body.text;
-
   await Article.update(
     {
-      title: titulo,
-      content: content,
-      img: img,
+      title: req.body.titulo,
+      content: req.body.text,
+      img: req.body.img,
     },
     {
       where: {
