@@ -9,23 +9,23 @@
   </head>
   <body>
     <div class="container">
-      <%-include("partials/NavBar")%> <%-include("partials/bsscript")%>
+      <%-include("partials/NavBar")%>
       <div>
         <h1 class="text-center"><%=article.title%></h1>
-        <div class="d-flex">
-          <div class="col">
+        <div class="row">
+          <div class="col-6">
             <p><%=author.firstname%> <%=author.lastname%></p>
           </div>
-          <div class="col text-center">
+          <div class="col-6 text-center">
             <small><%=article.createdAt%></small>
           </div>
         </div>
-        <div><img src="<%=article.img %>" alt="foto" /></div>
-
-        <div>
-          <p><%=article.text%></p>
+        <div class="row">
+          <div class="col-6 img-fluid">
+            <img src="<%=article.img %>" alt="foto" />
+          </div>
+          <div class="col-6"><%=article.content%></div>
         </div>
-        <p><%=article.content%></p>
       </div>
 
       <form action="/articulos" method="post">
@@ -60,6 +60,6 @@
         </ul>
       </div>
     </div>
-    <%-include("partials/footer")%>
+    <%-include("partials/bsscript")%> <%-include("partials/footer")%>
   </body>
 </html>

@@ -16,12 +16,12 @@ module.exports = async () => {
   for (let i = 0; i < 40; i++) {
     articles.push({
       title: faker.lorem.sentence(5),
-      content: faker.lorem.paragraphs(),
+      content: faker.lorem.paragraphs(5),
       img: faker.image.nature(480, 480, true),
       userId: Math.floor(Math.random() * 14) + 1,
     });
     comments.push({
-      content: faker.lorem.paragraphs(),
+      content: faker.lorem.paragraphs(2),
       userId: Math.floor(Math.random() * 14) + 1,
       articleId: Math.floor(Math.random() * 39) + 1,
     });
