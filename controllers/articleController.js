@@ -1,4 +1,6 @@
 const { Article, Comment, User } = require("../models");
+const format = require("date-fns/format");
+const es = require("date-fns/locale/es");
 
 async function createComment(req, res) {
   const articleId = req.params.id;
@@ -30,7 +32,7 @@ async function show(req, res) {
   });
   const author = await article.getAuthor();
 
-  res.render("articulos", { article, author });
+  res.render("articulos", { article, author, es, format });
 }
 
 // Show the form for creating a new resource

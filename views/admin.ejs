@@ -53,8 +53,9 @@
                 <div class="overflow-auto" style="height: 200px"><%=article.content%></div>
               </td>
               <td><img src="<%=article.img%>" alt="imagen" width="200" height="200" /></td>
-              <td><p><%=article.createdAt%></p></td>
-              <td class="align-middle">
+              <!-- prettier-ignore -->
+              <td><p><%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%></p></td>
+              <td>
                 <p><%=article.user.firstname+" "+article.user.lastname%></p>
               </td>
               <td>
