@@ -9,14 +9,14 @@
   </head>
   <body>
     <div class="container">
-      <%-include("partials/NavBar")%> <%-include("partials/bsscript")%>
+      <%-include("partials/NavBar")%>
       <div>
         <h1 class="text-center"><%=article.title%></h1>
         <div class="d-flex">
-          <div class="col my-2 d-flex">
-            <small>Author: <%=author.firstname%> <%=author.lastname%></small>
+          <div class="col">
+            <p><%=author.firstname%> <%=author.lastname%></p>
           </div>
-          <div class="col text-center">
+          <div class="col-6 text-center">
             <small><%=article.createdAt%></small>
           </div>
           <hr class="my-2" />
@@ -24,11 +24,11 @@
         <div class="d-flex justify-content-center">
           <img class="img-fluid" src="<%=article.img %>" alt="foto" />
         </div>
+        <div><img src="<%=article.img %>" alt="foto" /></div>
 
         <div>
           <p><%=article.text%></p>
         </div>
-        <p><%=article.content%></p>
       </div>
 
       <form action="/articulos" method="post">
@@ -36,7 +36,7 @@
           <label for="title"> <h5>Escriba su comentario</h5></label>
         </div>
         <div class="comment-write-input">
-          <textarea name="text" rows="5" class="form-control"></textarea>
+          <textarea id="commentText" name="commentText" rows="5" class="form-control"></textarea>
         </div>
         <div class="my-4">
           <button class="btn btn-success" type="submit">Publicar</button>
@@ -63,6 +63,6 @@
         </ul>
       </div>
     </div>
-    <%-include("partials/footer")%>
+    <%-include("partials/bsscript")%> <%-include("partials/footer")%>
   </body>
 </html>
