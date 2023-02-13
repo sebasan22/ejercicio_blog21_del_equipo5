@@ -44,19 +44,15 @@
       </div>
       <div>
         <ul class="list-unstyled">
+          <% for (const comment of article.comments){ %>
           <li>
             <div class="card mb-3">
-              <div class="card-header">
-                <h6>email</h6>
-              </div>
               <div class="card-body">
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the
-                  card's content.
-                </p>
+                <p class="card-text">comment.content</p>
               </div>
             </div>
           </li>
+          <%}%>
         </ul>
       </div>
     </div>

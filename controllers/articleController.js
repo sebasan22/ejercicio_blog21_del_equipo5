@@ -1,4 +1,4 @@
-const { Article } = require("../models");
+const { Article, Comment } = require("../models");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -8,7 +8,7 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const article = await Article.findByPk(req.params.id);
+  const article = await Article.findByPk(req.params.id, { include: Comment });
   const author = await article.getAuthor();
   res.render("articulos", { article, author });
 }
