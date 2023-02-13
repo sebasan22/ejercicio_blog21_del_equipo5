@@ -3,7 +3,7 @@ const format = require("date-fns/format");
 const es = require("date-fns/locale/es");
 
 async function showHome(req, res) {
-  const articles = await Article.findAll({ include: User }, { order: [["createdAt", "DESC"]] });
+  const articles = await Article.findAll({ include: User, order: [["updatedAt", "DESC"]] });
   res.render("home", { articles, format, es });
 }
 
@@ -14,7 +14,7 @@ async function showArticulos(req, res) {
 }
 
 async function showAdmin(req, res) {
-  const articles = await Article.findAll({ include: User });
+  const articles = await Article.findAll({ include: User, order: [["updatedAt", "DESC"]] });
   res.render("admin", { articles, format, es });
 }
 
