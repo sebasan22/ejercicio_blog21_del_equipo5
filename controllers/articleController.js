@@ -33,25 +33,13 @@ async function store(req, res) {
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const article = await Article.findByPk(req.params.id);
+  console.log(req.params);
   res.render("edit", { article });
 }
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  const articleId = req.params.id;
-  const titulo = req.body.titulo;
-  const img = req.body.img;
-  const content = req.body.text;
-  /*await Article.update({
-    title: titulo,
-    content: img,
-    img: content,
-    Where: {
-      id: articleId,
-    },
-  });
-  console.log(articleId);
-  res.redirect("/panel/admin");*/
+  res.redirect("/panel/admin");
 }
 
 // Remove the specified resource from storage.
