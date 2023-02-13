@@ -42,16 +42,19 @@ async function update(req, res) {
   const titulo = req.body.titulo;
   const img = req.body.img;
   const content = req.body.text;
-  /*await Article.update({
-    title: titulo,
-    content: img,
-    img: content,
-    Where: {
-      id: articleId,
+  await Article.update(
+    {
+      title: titulo,
+      content: content,
+      img: img,
     },
-  });
-  console.log(articleId);
-  res.redirect("/panel/admin");*/
+    {
+      where: {
+        id: articleId,
+      },
+    },
+  );
+  res.redirect("/panel/admin");
 }
 
 // Remove the specified resource from storage.
