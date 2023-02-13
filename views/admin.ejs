@@ -22,9 +22,9 @@
     </div>
     <div class="container">
       <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover table-bordered">
           <thead>
-            <tr>
+            <tr class="table-secondary">
               <th scope="col">Id</th>
               <th scope="col" class="text-center">Title</th>
               <th scope="col" class="text-center">Content</th>
@@ -56,10 +56,10 @@
                 <p><%=article.user.firstname+" "+article.user.lastname%></p>
               </td>
               <td>
-                <div class="text-center">
+                <div class="text-center pt-5">
                   <a href="/panel/admin/edit/<%=article.id%>" class="btn btn-primary">Editar</a>
                 </div>
-                <div class="text-center">
+                <div class="text-center pt-5">
                   <a
                     onclick="askForDelete(<%=article.id%>)"
                     type="button"
