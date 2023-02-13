@@ -42,6 +42,7 @@ async function update(req, res) {
   const titulo = req.body.titulo;
   const img = req.body.img;
   const content = req.body.text;
+
   await Article.update(
     {
       title: titulo,
