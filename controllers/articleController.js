@@ -64,15 +64,6 @@ async function update(req, res) {
   );
   res.redirect("/panel/admin");
 }
-async function createComment(req, res) {
-  const articleId = req.params.id;
-  await Comment.create({
-    content: req.body.commentText,
-    articleId: articleId,
-    userId: Math.floor(Math.random() * 14) + 1,
-  });
-  res.redirect(`/articulos/${articleId}`);
-}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
@@ -96,5 +87,4 @@ module.exports = {
   edit,
   update,
   destroy,
-  createComment,
 };
