@@ -7,12 +7,6 @@ async function showHome(req, res) {
   res.render("home", { articles, format, es });
 }
 
-async function showArticulos(req, res) {
-  const article = await Article.findByPk(req.params.id);
-  const author = await article.getAuthor();
-  res.render("articulos", { article, author });
-}
-
 async function showAdmin(req, res) {
   const articles = await Article.findAll({ include: User, order: [["updatedAt", "DESC"]] });
   res.render("admin", { articles, format, es });
@@ -20,6 +14,5 @@ async function showAdmin(req, res) {
 
 module.exports = {
   showHome,
-  showArticulos,
   showAdmin,
 };

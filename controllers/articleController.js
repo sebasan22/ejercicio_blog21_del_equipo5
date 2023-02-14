@@ -5,7 +5,7 @@ const es = require("date-fns/locale/es");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
-  res.json(articles);
+  return res.json(articles);
 }
 
 // Display the specified resource.
@@ -19,15 +19,16 @@ async function show(req, res) {
         },
       },
     ],
+    order: [[{ model: Comment }, "updatedAt", "DESC"]],
   });
   const author = await article.getAuthor();
 
-  res.render("articulos", { article, author, es, format });
+  return res.render("articulos", { article, author, es, format });
 }
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  res.render("new");
+  return res.render("new");
 }
 
 // Store a newly created resource in storage.
@@ -38,13 +39,13 @@ async function store(req, res) {
     img: req.body.img,
     userId: Math.floor(Math.random() * 14) + 1,
   });
-  res.redirect("/panel/admin");
+  return res.redirect("/panel/admin");
 }
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const article = await Article.findByPk(req.params.id);
-  res.render("edit", { article });
+  return res.render("edit", { article });
 }
 
 // Update the specified resource in storage.
@@ -62,16 +63,7 @@ async function update(req, res) {
       },
     },
   );
-  res.redirect("/panel/admin");
-}
-async function createComment(req, res) {
-  const articleId = req.params.id;
-  await Comment.create({
-    content: req.body.commentText,
-    articleId: articleId,
-    userId: Math.floor(Math.random() * 14) + 1,
-  });
-  res.redirect(`/articulos/${articleId}`);
+  return res.redirect("/panel/admin");
 }
 
 // Remove the specified resource from storage.
@@ -82,11 +74,8 @@ async function destroy(req, res) {
       id: articleId,
     },
   });
-  res.redirect("/panel/admin");
+  return res.redirect("/panel/admin");
 }
-
-// Otros handlers...
-// ...
 
 module.exports = {
   index,
@@ -96,5 +85,4 @@ module.exports = {
   edit,
   update,
   destroy,
-  createComment,
 };

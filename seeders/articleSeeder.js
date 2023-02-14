@@ -11,7 +11,8 @@ module.exports = async () => {
     let firstname = faker.name.firstName();
     let lastname = faker.name.lastName();
     let email = faker.internet.email(firstname, lastname);
-    users.push({ firstname, lastname, email });
+    let password = faker.internet.password();
+    users.push({ firstname, lastname, email, password });
   }
   for (let i = 0; i < 40; i++) {
     articles.push({
