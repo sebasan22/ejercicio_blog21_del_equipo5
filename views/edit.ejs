@@ -8,8 +8,8 @@
     <title>Editar</title>
   </head>
   <body>
+    <%-include("partials/NavBar")%>
     <div class="container">
-      <%-include("partials/NavBar")%> <%-include("partials/bsscript")%>
       <h1 class="text-center">Edite su Blog a gusto</h1>
       <h4 class="text-center">Editara el blog con el id :</h4>
       <form action="/articulos/<%= article.id %>" method="post">
@@ -40,6 +40,6 @@
         </div>
       </form>
     </div>
-    <%-include("partials/footer")%>
+    <%-include("partials/footer")%> <%-include("partials/bsscript")%>
   </body>
 </html>

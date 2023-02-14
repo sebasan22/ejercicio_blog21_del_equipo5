@@ -1,13 +1,12 @@
+/* const { User } = require("./models"); */
+
 require("dotenv").config();
 
 const express = require("express");
 const router = require("./routes");
 const port = process.env.APP_PORT || 3000;
 const app = express();
-
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.set("view engine", "ejs");
+const bcrypt = require("bcryptjs")
 
 //PassPort - Require
 const session = require("express-session")
@@ -18,9 +17,9 @@ const dbInitialSetup = require("./dbInitialSetup");
 
 //////////////////////////////////////////// Passport y configuración
 
-/* app.use(
+app.use(
   session({
-    secret: "",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
   })
@@ -31,10 +30,16 @@ passport.use(
   new LocalStrategy(async (username, password, done) => {
     //Buscamos el usuario en la db
     try {
-      User.findOne({ where: { email: username } })
-      await ((user) => {
-        // Condiciones para corroborar que las credenciales del usuario son correctas
-      })
+      const user = User.findOne({ where: { username } })
+      if (!user) {
+        console.log("Nombre de usuario incorrecto.");
+        return done(null, false, { message: "Credenciales incorrectas" })
+      }
+      const match = await bcrypt.compare(password, user.password)
+      if (!match) {
+        console.log("La contraseña es incorrecta");
+        return done(null, false, { message: "Credenciales incorrectas" })
+      }
     }
     catch (error) {
       return done(error);
@@ -58,11 +63,10 @@ passport.deserializeUser(async (id, done) => {
   }
 })
 
-app.post("/login",
-passport.authenticate("local",{
-  successRedirect: "/",
-  failureRedirect: "/login"
-})) */
+
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 
 router(app);
 

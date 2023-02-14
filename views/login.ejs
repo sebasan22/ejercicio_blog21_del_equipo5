@@ -9,17 +9,23 @@
   </head>
   <body>
     <%-include("partials/NavBar")%>
-    <div class="container w-50 border shadow rounded mb-5 p-5">
+    <div class="container w-50 border shadow mb-5 p-5">
       <h2 class="text-center mb-2">Login</h2>
-      <form>
+      <form action="/login" method="post">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
+          <input
+            type="text"
+            name="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+          />
           <div id="emailHelp" class="form-text">Nunca vamos a compartir tu email.</div>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="password" />
+          <input type="password" name="password" class="form-control" id="password" />
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="check1" />

@@ -1,35 +1,20 @@
+
 const { User } = require("../models");
+const bcrypt = require("bcryptjs")
+const passport = require("passport")
 
 // Display a listing of the resource.
-async function index(req, res) {}
+async function index(req, res) {
+  res.redirect("/")
+}
 
-// Display the specified resource.
-async function show(req, res) {}
+const login = passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login"
+});
 
-// Show the form for creating a new resource
-async function create(req, res) {}
-
-// Store a newly created resource in storage.
-async function store(req, res) {}
-
-// Show the form for editing the specified resource.
-async function edit(req, res) {}
-
-// Update the specified resource in storage.
-async function update(req, res) {}
-
-// Remove the specified resource from storage.
-async function destroy(req, res) {}
-
-// Otros handlers...
-// ...
 
 module.exports = {
   index,
-  show,
-  create,
-  store,
-  edit,
-  update,
-  destroy,
+  login
 };
