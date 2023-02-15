@@ -27,7 +27,10 @@ app.use(
 app.use(passport.session())
 
 passport.use(
-  new LocalStrategy(async (username, password, done) => {
+  new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'contrasenia'
+  }, async (username, password, done) => {
     //Buscamos el usuario en la db
     try {
       const user = User.findOne({ where: { username } })
