@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs")
 
 faker.locale = "es";
 
-const pass = bcrypt.hash("1234", 8)
+/* const pass = async () => { bcrypt.hash("1234", 8) } */
 
 module.exports = async () => {
   const users = [];
@@ -14,7 +14,7 @@ module.exports = async () => {
     users.push({
       username: faker.internet.userName(),
       email: faker.internet.email(),
-      password: pass
+      password: await bcrypt.hash("1234", 8)
     })
     articles.push({
       title: faker.lorem.sentence(5),
@@ -28,9 +28,9 @@ module.exports = async () => {
       articleId: Math.floor(Math.random() * 4) + 1,
     });
   }
-  /*   await User.bulkCreate(users);
-    await Article.bulkCreate(articles);
-    await Comment.bulkCreate(comments); */
+  await User.bulkCreate(users);
+  await Article.bulkCreate(articles);
+  await Comment.bulkCreate(comments);
 
   /*   console.log("[Database] Se corrió el seeder de Articles."); */
 };
