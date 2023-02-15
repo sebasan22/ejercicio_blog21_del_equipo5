@@ -21,9 +21,7 @@ async function show(req, res) {
     ],
     order: [[{ model: Comment }, "updatedAt", "DESC"]],
   });
-  const author = await article.getAuthor();
-
-  return res.render("articulos", { article, author, es, format });
+  return res.render("articulos", { article, es, format });
 }
 
 // Show the form for creating a new resource

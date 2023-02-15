@@ -53,7 +53,19 @@
               <td>
                 <div class="overflow-auto" style="height: 200px"><%=article.content%></div>
               </td>
+              <% if (article.img === "") { %>
+              <td>
+                <img
+                  src="https://www.igaxes.org/wp-content/uploads/2018/04/img-default-539x303.jpg"
+                  alt="imagendefault"
+                  width="200"
+                  height="200"
+                />
+              </td>
+              <% } else { %>
               <td><img src="<%=article.img%>" alt="imagen" width="200" height="200" /></td>
+
+              <% } %>
               <!-- prettier-ignore -->
               <td><p><%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%></p></td>
               <td>
