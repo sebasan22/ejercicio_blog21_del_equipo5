@@ -7,17 +7,17 @@ async function showHome(req, res) {
   res.render("home", { articles, format, es });
 }
 
-async function showLogin(req, res) {
-  res.render("login");
+async function showAdmin(req, res) {
+  if (req.isAuthenticated()) {
+    const articles = await Article.findAll({ include: User, order: [["updatedAt", "DESC"]] });
+    res.render("admin", { articles, format, es });
+  } else {
+    res.render("login")
+  }
 }
 
-async function showAdmin(req, res) {
-  const articles = await Article.findAll({ include: User, order: [["updatedAt", "DESC"]] });
-  res.render("admin", { articles, format, es });
-}
 
 module.exports = {
   showHome,
   showAdmin,
-  showLogin
 };

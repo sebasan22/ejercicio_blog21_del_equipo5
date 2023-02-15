@@ -1,11 +1,10 @@
-/*  const { User } = require("./models");  */
 
 require("dotenv").config();
-
 const express = require("express");
 const router = require("./routes");
 const port = process.env.APP_PORT || 3000;
 const app = express();
+const { User } = require("./models");
 const bcrypt = require("bcryptjs")
 
 //PassPort - Require
@@ -16,7 +15,7 @@ const LocalStrategy = require("passport-local")
 const dbInitialSetup = require("./dbInitialSetup");
 
 //////////////////////////////////////////// Passport y configuración
-
+////////// Iniciamos Session de Passport
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -25,46 +24,44 @@ app.use(
   })
 )
 app.use(passport.session())
-
+////////// Configuramos la estrategia de logueo, en este caso Local.
 passport.use(
-  new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'contrasenia'
-  }, async (username, password, done) => {
-    //Buscamos el usuario en la db
+  new LocalStrategy(async (username, password, done) => {
     try {
-      const user = User.findOne({ where: { username } })
+      ////////// Buscamos el usuario en la db.
+      const user = await User.findOne({ where: { username } })
       if (!user) {
         console.log("Nombre de usuario incorrecto.");
         return done(null, false, { message: "Credenciales incorrectas" })
       }
+      ////////// Corroboramos que la contraseña sea correcta.
       const match = await bcrypt.compare(password, user.password)
       if (!match) {
         console.log("La contraseña es incorrecta");
         return done(null, false, { message: "Credenciales incorrectas" })
       }
+      ////////// Una vez corroboramos, almacenamos el usuario.
+      return done(null, user)
     }
     catch (error) {
       return done(error);
     }
   })
 )
-
+////////// Estraemos la id del usuario mediante el seralizeUser
 passport.serializeUser((user, done) => {
-  done(null, req.session.passport.user)
+  done(null, user.id)
 })
 
+////////// Consultamos en la db y traemos el usuario completo con la id extraida del serailizeUser, esto genera
 passport.deserializeUser(async (id, done) => {
-  User.findByPk(req.session.passport.user)
   try {
-    await ((user) => {
-      done(null, user);
-    })
+    const user = await User.findByPk(id);
+    done(null, user); // req.user
+  } catch (error) {
+    done(error);
   }
-  catch (error) {
-    done(error, null)
-  }
-})
+});
 
 
 app.use(express.static("public"));
@@ -76,6 +73,6 @@ router(app);
 dbInitialSetup();
 
 app.listen(port, () => {
-  console.log(`\n[Express] Servidor corriendo en el puerto ${port}.`);
-  console.log(`[Express] Ingresar a http://localhost:${port}.\n`);
+  console.log(`[Express] Servidor corriendo en el puerto ${port}.`);
+  console.log(`[Express] Ingresar a http://localhost:${port}`);
 });
