@@ -10,25 +10,33 @@
   <body>
     <%-include("partials/NavBar")%>
     <div class="container w-50 border shadow mb-5 p-5">
-      <h2 class="text-center mb-2">Login</h2>
-      <form action="/login" method="post">
+      <h2 class="text-center mb-2">Registrarme</h2>
+      <form action="/register" method="post">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" name="email" class="form-control" id="email" />
+          <div id="emailHelp" class="form-text">Nunca vamos a compartir tu email.</div>
+        </div>
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input type="text" name="username" class="form-control" id="username" />
-          <div id="emailHelp" class="form-text">Nunca vamos a compartir tu email.</div>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Contraseña</label>
           <input type="password" name="password" class="form-control" id="password" />
         </div>
+        <div class="mb-3">
+          <label for="confirmpassword" class="form-label"> Confirmar Contraseña</label>
+          <input type="password" name="confirmpassword" class="form-control" id="confirmpassword" />
+        </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="check1" />
           <label class="form-check-label" for="check1">Recordar.</label>
         </div>
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-primary">Registrarme</button>
         <div class="d-flex gap-3 justify-content-center">
-          <p>Aún no tenes cuenta?</p>
-          <a class="text-decoration-none" href="/register">Registrarme</a>
+          <p>Ya tenes cuenta? si estas registrado logeate aqui</p>
+          <a class="text-decoration-none" href="/login">login</a>
         </div>
       </form>
     </div>
