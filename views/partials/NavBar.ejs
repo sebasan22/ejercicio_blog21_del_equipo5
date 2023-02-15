@@ -15,13 +15,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   </div>
-
   <div class="collapse navbar-collapse" id="navbarNav">
     <div class="ms-auto">
-      <% if (true) { %>
+      <% if (!user.id) { %>
       <a class="btn btn-primary" href="/login">Login</a>
       <% } %>
+      <!--   ignore -->
+      <% if (user.id) { %>
       <a class="btn btn-primary" href="/panel/admin">Admin</a>
+      <% } %>
+      <!--   ignore -->
+      <% if (user.id) { %>
+      <a class="btn btn-danger" href="/usuarios/logout">Cerrar Sesión</a>
+      <% } %>
     </div>
   </div>
 </nav>

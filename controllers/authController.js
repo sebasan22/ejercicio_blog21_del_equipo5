@@ -4,11 +4,7 @@ const bcrypt = require("bcryptjs");
 // Display a listing of the resource.
 
 async function index(req, res) {
-  if (req.isAuthenticated()) {
-    res.redirect("/");
-  } else {
-    res.render("login");
-  }
+  res.redirect("/");
 }
 
 const login = passport.authenticate("local", {
@@ -16,26 +12,37 @@ const login = passport.authenticate("local", {
   failureRedirect: "/login",
 });
 
+function logout(req, res) {
+  req.logout((err) => {
+    if (err) throw err
+    return res.redirect("/login")
+  });
+}
+
 async function register(req, res) {
-  if (req.isAuthenticated()) {
-    res.redirect("/");
-  } else {
-    res.render("register");
-  }
+  res.redirect("/");
 }
 
 async function storeUser(req, res) {
-  await User.create({
-    email: req.body.email,
-    username: req.body.username,
-    password: await bcrypt.hash(req.body.password, 8),
-  });
-  return res.redirect("/");
+
+  if (req.body.password === req.body.confirmpassword) {
+    await User.create({
+      email: req.body.email,
+      username: req.body.username,
+      password: await bcrypt.hash(req.body.password, 8),
+    });
+    return res.redirect("/");
+
+  } else {
+    console.log("las contraseñas no coinciden");
+    return res.redirect("/register");
+  }
 }
 
 module.exports = {
   index,
   login,
+  logout,
   register,
   storeUser,
 };

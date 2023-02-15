@@ -37,15 +37,25 @@ async function store(req, res) {
     title: req.body.titulo,
     content: req.body.text,
     img: req.body.img,
-    userId: Math.floor(Math.random() * 14) + 1,
+    userId: req.user.dataValues.id
   });
   return res.redirect("/panel/admin");
 }
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
-  const article = await Article.findByPk(req.params.id);
-  return res.render("edit", { article });
+  const article = await Article.findByPk(req.params.id, {
+    include: {
+      model: User,
+    }
+  });
+
+  if (req.user.dataValues.id === article.user.id) {
+    return res.render("edit", { article });
+  } else {
+    console.log("No tenes permiso.");
+    return res.redirect("/panel/admin")
+  }
 }
 
 // Update the specified resource in storage.
@@ -60,8 +70,8 @@ async function update(req, res) {
     {
       where: {
         id: articleId,
-      },
-    },
+      }
+    }
   );
   return res.redirect("/panel/admin");
 }

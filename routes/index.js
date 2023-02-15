@@ -1,3 +1,5 @@
+const makeUserAvailableInViews = require("../middlewares/makeUserAvalibleInViews")
+
 /**
  * No hay una única forma de organizar las rutas de un sitio web.
  * Una alternativa podría ser organizar las rutas por entidad:
@@ -28,6 +30,7 @@ module.exports = (app) => {
    * en inglés.
    */
 
+  app.use(makeUserAvailableInViews)
   app.use("/usuarios", userRoutes);
   app.use("/articulos", articleRoutes);
   app.use("/comentar", commentRoutes);

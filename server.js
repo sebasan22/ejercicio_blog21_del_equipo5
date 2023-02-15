@@ -28,26 +28,33 @@ app.use(passport.session())
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
+
+      /////////////////////////////////////// Restricciones
+
       ////////// Buscamos el usuario en la db.
       const user = await User.findOne({ where: { username } })
       if (!user) {
         console.log("Nombre de usuario incorrecto.");
         return done(null, false, { message: "Credenciales incorrectas" })
       }
+
       ////////// Corroboramos que la contraseña sea correcta.
       const match = await bcrypt.compare(password, user.password)
       if (!match) {
         console.log("La contraseña es incorrecta");
         return done(null, false, { message: "Credenciales incorrectas" })
       }
+
       ////////// Una vez corroboramos, almacenamos el usuario.
       return done(null, user)
+
     }
     catch (error) {
       return done(error);
     }
   })
-)
+);
+
 ////////// Estraemos la id del usuario mediante el seralizeUser
 passport.serializeUser((user, done) => {
   done(null, user.id)
@@ -62,6 +69,8 @@ passport.deserializeUser(async (id, done) => {
     done(error);
   }
 });
+
+
 
 
 app.use(express.static("public"));
