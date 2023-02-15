@@ -9,7 +9,7 @@ const isAuthenticated = require("../middlewares/isAutenticated")
 router.post("/login", authController.login);
 router.get("/login", isAuthenticated, authController.index);
 router.get("/logout", authController.logout)
-router.get("/register", isAuthenticated, authController.register);
+router.get("/register", authController.register);
 router.post("/register", authController.storeUser);
 router.get("/", pageController.showHome);
 

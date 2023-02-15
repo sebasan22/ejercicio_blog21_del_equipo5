@@ -20,7 +20,7 @@ function logout(req, res) {
 }
 
 async function register(req, res) {
-  res.redirect("/");
+  res.render("register");
 }
 
 async function storeUser(req, res) {
