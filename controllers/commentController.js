@@ -5,7 +5,7 @@ async function createComment(req, res) {
   await Comment.create({
     content: req.body.commentText,
     articleId: articleId,
-    userId: Math.floor(Math.random() * 14) + 1,
+    userId: req.user.id,
   });
   res.redirect(`/articulos/${articleId}`);
 }
