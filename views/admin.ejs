@@ -37,6 +37,8 @@
 
           <tbody>
             <%for(let article of articles){%>
+            <!--        default -->
+            <%if (article.user.id === user.id) { %>
             <tr class="align-middle">
               <th><p><%=article.id%></p></th>
               <td>
@@ -74,7 +76,7 @@
                 </div>
               </td>
             </tr>
-            <%}%>
+            <% } else { null } }%>
           </tbody>
         </table>
       </div>
