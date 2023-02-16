@@ -44,7 +44,7 @@ module.exports = async () => {
     roles.push({ accesslevel: accessName[i] });
   }
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     users.push({
       username: faker.internet.userName(),
       email: faker.internet.email(),
