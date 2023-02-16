@@ -48,7 +48,11 @@ async function edit(req, res) {
     },
   });
 
-  if (req.user.dataValues.id === article.user.id) {
+  if (
+    req.user.dataValues.id === article.user.id ||
+    req.user.roleId === 4 ||
+    req.user.roleId === 3
+  ) {
     return res.render("edit", { article });
   } else {
     console.log("No tenes permiso.");
