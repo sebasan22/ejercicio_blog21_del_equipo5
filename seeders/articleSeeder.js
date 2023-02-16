@@ -7,7 +7,9 @@ faker.locale = "es";
 /* const pass = async () => { bcrypt.hash("1234", 8) } */
 
 module.exports = async () => {
-  const users = [];
+  const users = [
+    { username: "seba", email: "seba@hotmail.com", password: await bcrypt.hash("1234", 8) },
+  ];
   const articles = [];
   const comments = [];
   for (let i = 0; i < 5; i++) {
@@ -29,9 +31,9 @@ module.exports = async () => {
     });
   }
 
-  //await User.bulkCreate(users);
-  //await Article.bulkCreate(articles);
-  //await Comment.bulkCreate(comments);
+  await User.bulkCreate(users);
+  await Article.bulkCreate(articles);
+  await Comment.bulkCreate(comments);
 
   /*   console.log("[Database] Se corrió el seeder de Articles."); */
 };
