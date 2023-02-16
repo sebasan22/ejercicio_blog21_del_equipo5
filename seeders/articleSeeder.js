@@ -28,6 +28,7 @@ module.exports = async () => {
       articleId: Math.floor(Math.random() * 4) + 1,
     });
   }
+
   //await User.bulkCreate(users);
   //await Article.bulkCreate(articles);
   //await Comment.bulkCreate(comments);

@@ -1,7 +1,6 @@
 const passport = require("passport");
 const { Article, Comment, User } = require("../models");
 const bcrypt = require("bcryptjs");
-// Display a listing of the resource.
 
 async function index(req, res) {
   res.redirect("/");

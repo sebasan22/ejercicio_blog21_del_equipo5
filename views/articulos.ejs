@@ -58,9 +58,9 @@
               <div class="card-body">
                 <p class="card-text"><%=comment.content%></p>
                 <small class="text-muted"
-                  >Creado por <%=comment.user.username%> el
+                  >Publicado por <%=comment.user.username%> el
                   <!-- prettier-ignore -->
-                  <%=format(article.createdAt,"d/MM/yyyy HH:mm",{locale: es,})%>
+                  <%=format(comment.createdAt,"d/MM/yyyy 'a las' HH:mm",{locale: es,})%>
                 </small>
               </div>
             </div>

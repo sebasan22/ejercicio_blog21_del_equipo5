@@ -1,9 +1,5 @@
+//Middleware - Info Usuario
 const makeUserAvailableInViews = require("../middlewares/makeUserAvalibleInViews")
-
-/**
- * No hay una única forma de organizar las rutas de un sitio web.
- * Una alternativa podría ser organizar las rutas por entidad:
- */
 
 const userRoutes = require("./userRoutes");
 const articleRoutes = require("./articleRoutes");
@@ -30,7 +26,9 @@ module.exports = (app) => {
    * en inglés.
    */
 
+  //Usamos el middleware en todas las rutas
   app.use(makeUserAvailableInViews)
+
   app.use("/usuarios", userRoutes);
   app.use("/articulos", articleRoutes);
   app.use("/comentar", commentRoutes);
