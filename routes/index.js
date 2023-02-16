@@ -1,5 +1,5 @@
 //Middleware - Info Usuario
-const makeUserAvailableInViews = require("../middlewares/makeUserAvalibleInViews")
+const makeUserAvailableInViews = require("../middlewares/makeUserAvalibleInViews");
 
 const userRoutes = require("./userRoutes");
 const articleRoutes = require("./articleRoutes");
@@ -11,7 +11,7 @@ const commentRoutes = require("./commentRoutes");
  *
  * En `publicRoutes` podrían estar las rutas relacionadas con páginas como
  * Home, Contacto y Sobre Nosotros. En `privateRoutes` podrían estar las rutas
- * relacionados al Panel de Control (Admin). Notar que si se está construyento
+ * relacionados al Panel de Controle (Admin). Notar que si se está construyento
  * una API esta alternativa no tendría sentido.
  */
 
@@ -27,7 +27,7 @@ module.exports = (app) => {
    */
 
   //Usamos el middleware en todas las rutas
-  app.use(makeUserAvailableInViews)
+  app.use(makeUserAvailableInViews);
 
   app.use("/usuarios", userRoutes);
   app.use("/articulos", articleRoutes);
