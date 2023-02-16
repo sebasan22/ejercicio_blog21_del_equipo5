@@ -81,12 +81,23 @@ async function update(req, res) {
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   const articleId = req.params.id;
-  await Article.destroy({
-    where: {
-      id: articleId,
+  const article = await Article.findByPk(req.params.id, {
+    include: {
+      model: User,
     },
   });
-  return res.redirect("/panel/admin");
+
+  if (req.user.dataValues.id === article.user.id || req.user.roleId === 4) {
+    await Article.destroy({
+      where: {
+        id: articleId,
+      },
+    });
+    return res.redirect("/panel/admin");
+  } else {
+    console.log("No tines permisos para eliminar");
+    return res.redirect("/panel/admin");
+  }
 }
 
 module.exports = {
