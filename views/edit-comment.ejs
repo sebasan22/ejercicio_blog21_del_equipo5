@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include("partials/bsLink")%>
+    <title>Editar comentario</title>
+  </head>
+  <body>
+    <%-include("partials/NavBar")%>
+    <div class="container">
+      <h4 class="text-center">Editar comentario:</h4>
+      <form action="/comentar/editar/<%= comment.id %>" method="post">
+        <div class="">
+          <label for="text" class="form-label">Texto</label>
+          <textarea class="form-control" id="text" name="text" style="height: 100px" required>
+          <%=comment.content%>
+        </textarea
+          >
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success $teal-500 mt-4">
+            Reescribir comentario
+          </button>
+        </div>
+      </form>
+    </div>
+    <%-include("partials/footer")%> <%-include("partials/bsscript")%>
+  </body>
+</html>

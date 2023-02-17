@@ -63,6 +63,12 @@
                   <%=format(comment.createdAt,"d/MM/yyyy 'a las' HH:mm",{locale: es,})%>
                 </small>
               </div>
+              <%if(user.roleCode >= 300){%>
+              <div class="pb-2 ps-2">
+                <a href="/comentar/editar/<%=comment.id%>" class="btn btn-success">Editar</a>
+                <a href="/comentar/eliminar/<%=comment.id%>" class="btn btn-danger">Eliminar</a>
+              </div>
+              <%}%>
             </div>
           </li>
           <%}%>

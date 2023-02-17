@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const Role = require("./Role");
+//const Role = require("./Role");
 
 class User extends Model {
   static initModel(sequelize) {
@@ -23,6 +23,8 @@ class User extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
+        roleName: { type: DataTypes.STRING, allowNull: true },
+        roleCode: { type: DataTypes.INTEGER, allowNull: true },
       },
       {
         sequelize,
@@ -31,10 +33,10 @@ class User extends Model {
     );
     return User;
   }
-  async getrol() {
-    let role = await Role.findByPk(this.rolId);
+  /*async getrol() {
+    let role = await Role.findByPk(this.roleId);
     return role.dataValues;
-  }
+  }*/
 }
 
 module.exports = User;

@@ -1,6 +1,5 @@
 const writerAutenticate = (req, res, next) => {
-  if (req.isAuthenticated() && req.user.roleId === 2) {
-    console.log(req.user.roleId);
+  if (req.isAuthenticated() && req.user.roleCode >= 200) {
     next();
   } else {
     res.redirect("/");

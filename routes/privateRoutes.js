@@ -4,12 +4,14 @@ const pageController = require("../controllers/pageController");
 const articleController = require("../controllers/articleController");
 const isAuthenticated = require("../middlewares/isAutenticated");
 const adminAutenticate = require("../middlewares/adminAutenticated");
-const writerAutenticate = require("../middlewares/writerAutenticated");
+const atLeastWriter = require("../middlewares/atLeastWriter");
 
-router.get("/admin", isAuthenticated, adminAutenticate, pageController.showAdmin);
-router.get("/admin/eliminar/:id", isAuthenticated, adminAutenticate, articleController.destroy);
-router.get("/admin/new", isAuthenticated, adminAutenticate, articleController.create);
-router.get("/admin/edit/:id", isAuthenticated, adminAutenticate, articleController.edit);
-router.post("/admin/edit/:id", isAuthenticated, adminAutenticate, articleController.update);
+router.use(isAuthenticated);
+
+router.get("/admin", atLeastWriter, pageController.showAdmin);
+router.get("/admin/eliminar/:id", atLeastWriter, articleController.destroy);
+router.get("/admin/new", atLeastWriter, articleController.create);
+router.get("/admin/edit/:id", atLeastWriter, articleController.edit);
+router.post("/admin/edit/:id", atLeastWriter, articleController.update);
 
 module.exports = router;

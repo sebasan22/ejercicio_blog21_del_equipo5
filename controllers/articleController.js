@@ -48,11 +48,7 @@ async function edit(req, res) {
     },
   });
 
-  if (
-    req.user.dataValues.id === article.user.id ||
-    req.user.roleId === 4 ||
-    req.user.roleId === 3
-  ) {
+  if (req.user.id === article.user.id || req.user.roleCode >= 300) {
     return res.render("edit", { article });
   } else {
     console.log("No tenes permiso.");
@@ -87,7 +83,7 @@ async function destroy(req, res) {
     },
   });
 
-  if (req.user.dataValues.id === article.user.id || req.user.roleId === 4) {
+  if (req.user.dataValues.id === article.user.id || req.user.roleCode >= 400) {
     await Article.destroy({
       where: {
         id: articleId,

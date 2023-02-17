@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+/*const { Model, DataTypes } = require("sequelize");
 
 class Role extends Model {
   static initModel(sequelize) {
@@ -24,4 +24,4 @@ class Role extends Model {
   }
 }
 
-module.exports = Role;
+module.exports = Role;*/
