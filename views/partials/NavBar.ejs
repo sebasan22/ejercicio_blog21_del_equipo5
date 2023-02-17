@@ -16,6 +16,11 @@
     </button>
   </div>
   <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="me-auto">
+      <% if (user.roleCode>=400) { %>
+      <a class="btn btn-success" href="/usuarios/adminlist">User Administration</a>
+      <% } %>
+    </div>
     <div class="ms-auto">
       <% if (!user.id) { %>
       <a class="btn btn-primary" href="/login">Login</a>

@@ -52,14 +52,19 @@
       </div>
       <div>
         <ul class="list-unstyled">
-          <% for (const comment of article.comments){ %>
+          <% for (let comment of article.comments){ %>
           <li>
             <div class="card mb-3">
               <div class="card-body">
                 <p class="card-text"><%=comment.content%></p>
-                <small class="text-muted"
-                  >Publicado por <%=comment.user.username%> el
+                <small class="text-muted">
                   <!-- prettier-ignore -->
+                  <% if(comment.user.username === null){%> 
+                    <% comment.user.username ="ususario eliminado" %>
+                  <%}else{%>
+                  >Publicado por <%=comment.user.username%>
+                  <!-- prettier-ignore -->
+                  <%}%>
                   <%=format(comment.createdAt,"d/MM/yyyy 'a las' HH:mm",{locale: es,})%>
                 </small>
               </div>

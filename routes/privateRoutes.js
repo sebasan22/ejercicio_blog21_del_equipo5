@@ -3,7 +3,6 @@ const router = express.Router();
 const pageController = require("../controllers/pageController");
 const articleController = require("../controllers/articleController");
 const isAuthenticated = require("../middlewares/isAutenticated");
-const adminAutenticate = require("../middlewares/adminAutenticated");
 const atLeastWriter = require("../middlewares/atLeastWriter");
 
 router.use(isAuthenticated);
