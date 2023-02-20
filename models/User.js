@@ -28,6 +28,8 @@ class User extends Model {
       },
       {
         sequelize,
+        paranoid: true,
+        deletedAt: "destroyTime",
         modelName: "user",
       },
     );

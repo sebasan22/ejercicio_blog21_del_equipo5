@@ -31,9 +31,7 @@ Article.initModel(sequelize);
 User.hasMany(Article);
 User.hasMany(Comment);
 
-Article.hasMany(Comment, {
-  onDelete: "SET NULL",
-});
+Article.hasMany(Comment);
 Article.belongsTo(User);
 
 Comment.belongsTo(User);

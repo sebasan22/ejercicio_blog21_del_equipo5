@@ -16,6 +16,7 @@ async function show(req, res) {
         model: Comment,
         include: {
           model: User,
+          paranoid: false,
         },
       },
     ],
@@ -104,4 +105,5 @@ module.exports = {
   edit,
   update,
   destroy,
+  articleList,
 };
