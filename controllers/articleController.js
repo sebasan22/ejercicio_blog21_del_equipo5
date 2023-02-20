@@ -105,5 +105,4 @@ module.exports = {
   edit,
   update,
   destroy,
-  articleList,
 };
